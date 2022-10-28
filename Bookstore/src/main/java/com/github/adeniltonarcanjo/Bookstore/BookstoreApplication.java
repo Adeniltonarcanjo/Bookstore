@@ -1,4 +1,4 @@
-package github.adeniltonarcanjo.Bookstore;
+package com.github.adeniltonarcanjo.Bookstore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package github.adeniltonarcanjo.Bookstore;
+package com.github.adeniltonarcanjo.Bookstore;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
