@@ -1,7 +1,5 @@
 package com.github.adeniltonarcanjo.Bookstore.domain;
 
-import org.hibernate.engine.query.ParameterRecognitionException;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Categoria implements Serializable {
+public class Category implements Serializable {
 
     private static final long serialVersionUID= 1L;
 
@@ -19,13 +17,13 @@ public class Categoria implements Serializable {
     private String nome;
     private String descricao;
 
-    @OneToMany(mappedBy = "categoria")
-    private List<Livro> livros= new ArrayList<>();
+    @OneToMany(mappedBy = "category")
+    private List<Book> livros= new ArrayList<>();
 
 
-    public Categoria() {}
+    public Category() {}
 
-    public Categoria(Integer id, String nome, String descricao) {
+    public Category(Integer id, String nome, String descricao) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -55,19 +53,19 @@ public class Categoria implements Serializable {
         this.descricao = descricao;
     }
 
-    public List<Livro> getLivros() {
+    public List<Book> getLivros() {
         return livros;
     }
 
-    public void setLivros(List<Livro> livros) {
+    public void setLivros(List<Book> livros) {
         this.livros = livros;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Categoria)) return false;
-        Categoria categoria = (Categoria) o;
+        if (!(o instanceof Category)) return false;
+        Category categoria = (Category) o;
         return getId().equals(categoria.getId());
     }
 
