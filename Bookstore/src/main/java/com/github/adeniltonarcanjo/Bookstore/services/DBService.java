@@ -5,6 +5,7 @@ import com.github.adeniltonarcanjo.Bookstore.domain.Category;
 import com.github.adeniltonarcanjo.Bookstore.repositories.BookRepository;
 import com.github.adeniltonarcanjo.Bookstore.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -14,8 +15,10 @@ public class DBService {
 
     @Autowired
     private BookRepository bookRepository;
+
     @Autowired
     private CategoryRepository categoryRepository;
+
 
 
     public void dataBaseInstance() {
@@ -30,7 +33,7 @@ public class DBService {
 
         cat1.getLivros().addAll(Arrays.asList(b1));
         cat2.getLivros().addAll(Arrays.asList(b4));
-        cat2.getLivros().addAll(Arrays.asList(b2, b3));
+        cat3.getLivros().addAll(Arrays.asList(b2, b3));
 
         this.categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
         this.bookRepository.saveAll(Arrays.asList(b1, b2, b3, b4));

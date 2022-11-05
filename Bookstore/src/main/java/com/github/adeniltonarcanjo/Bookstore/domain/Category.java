@@ -1,5 +1,7 @@
 package com.github.adeniltonarcanjo.Bookstore.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ public class Category implements Serializable {
     private String nome;
     private String descricao;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "category")
     private List<Book> livros= new ArrayList<>();
 

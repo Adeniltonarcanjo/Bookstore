@@ -22,8 +22,9 @@ public class DevConfig {
     @Bean
     public boolean instancyDataBase(){
 
-        if(strategy.equals("create")){
+        if(strategy.equalsIgnoreCase("create")){
             this.dbService.dataBaseInstance();
+
         }
         return false;
 
