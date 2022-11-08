@@ -16,20 +16,19 @@ public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nome;
-    private String descricao;
+    private String name;
+    private String description;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "category")
-    private List<Book> livros= new ArrayList<>();
+    private List<Book> books = new ArrayList<>();
 
 
     public Category() {}
 
     public Category(Integer id, String nome, String descricao) {
         this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
+        this.name = nome;
+        this.description = descricao;
     }
 
     public Integer getId() {
@@ -40,28 +39,28 @@ public class Category implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public List<Book> getLivros() {
-        return livros;
+    public List<Book> getBooks() {
+        return books;
     }
 
-    public void setLivros(List<Book> livros) {
-        this.livros = livros;
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     @Override

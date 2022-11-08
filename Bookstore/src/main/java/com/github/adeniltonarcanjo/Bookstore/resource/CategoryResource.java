@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @RequestMapping(value="/categories")
@@ -25,6 +26,8 @@ public class CategoryResource {
         return ResponseEntity.ok().body(obj);
 
     }
+
+
 
 
 
