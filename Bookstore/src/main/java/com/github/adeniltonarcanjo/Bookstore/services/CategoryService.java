@@ -38,8 +38,11 @@ public class CategoryService {
         obj.setName(objDto.getName());
         obj.setDescription(objDto.getDescription());
         return repository.save(obj);
+    }
 
-
+    public void delete(Integer id){
+        findById(id);
+        repository.deleteById(id);
     }
 
 
