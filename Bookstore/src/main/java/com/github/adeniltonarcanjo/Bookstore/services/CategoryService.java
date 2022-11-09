@@ -33,5 +33,14 @@ public class CategoryService {
         return repository.save(obj);
     }
 
+    public Category update(Integer id, CategoryDTO objDto){
+        Category obj= findById(id);
+        obj.setName(objDto.getName());
+        obj.setDescription(objDto.getDescription());
+        return repository.save(obj);
+
+
+    }
+
 
 }
