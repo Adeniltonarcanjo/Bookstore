@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 public class CategoryDTO implements Serializable {
 
-    private static final long serialVersionID = 1L;
+    private static final long serialVersionUID = 1L;
 
     private Integer id;
     private String name;
@@ -17,6 +17,7 @@ public class CategoryDTO implements Serializable {
     }
 
     public CategoryDTO(Category obj) {
+        super();
         this.id = obj.getId();
         this.name = obj.getName();
         this.description = obj.getDescription();

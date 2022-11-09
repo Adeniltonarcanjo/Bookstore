@@ -5,40 +5,46 @@ import com.github.adeniltonarcanjo.Bookstore.domain.Category;
 import com.github.adeniltonarcanjo.Bookstore.dtos.CategoryDTO;
 import com.github.adeniltonarcanjo.Bookstore.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.annotation.Resource;
+import javax.servlet.Servlet;
+import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(value="/categories")
+@RequestMapping(value = "/categories")
 public class CategoryResource {
 
     @Autowired
     private CategoryService service;
 
-    @GetMapping(value="/{id}")
-    public ResponseEntity<Category> findById(@PathVariable Integer id){
-        Category obj =service.findById(id);
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Category> findById(@PathVariable Integer id) {
+        Category obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
 
     }
 
     @GetMapping
-    public ResponseEntity<List<CategoryDTO>> findAll(){
+    public ResponseEntity<List<CategoryDTO>> findAll() {
         List<Category> list = service.findAll();
-        List<CategoryDTO> listDTO= list.stream().map(obj-> new CategoryDTO(obj)).collect(Collectors.toList());
+        List<CategoryDTO> listDTO = list.stream().map(obj -> new CategoryDTO(obj)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listDTO);
     }
 
 
+    @PostMapping
+    public ResponseEntity<Category> create(@RequestBody Category obj) {
+        obj = service.create(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(obj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
 
-
+    }
 
 
 }
