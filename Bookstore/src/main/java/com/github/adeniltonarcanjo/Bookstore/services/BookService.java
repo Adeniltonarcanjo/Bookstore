@@ -2,6 +2,8 @@ package com.github.adeniltonarcanjo.Bookstore.services;
 
 
 import com.github.adeniltonarcanjo.Bookstore.domain.Book;
+import com.github.adeniltonarcanjo.Bookstore.domain.Category;
+import com.github.adeniltonarcanjo.Bookstore.dtos.CategoryDTO;
 import com.github.adeniltonarcanjo.Bookstore.repositories.BookRepository;
 import com.github.adeniltonarcanjo.Bookstore.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +36,19 @@ public class BookService {
     }
 
 
+    public Book book_update(Integer id, Book obj) {
+        Book newObj = findById(id);
+        updateData(newObj,obj);
+        return repository.save(newObj);
 
+    }
 
+    private void updateData(Book newObj, Book obj) {
+        newObj.setAuthor(obj.getAuthor());
+        newObj.setText(obj.getText());
+        newObj.setTitle(obj.getTitle());
+
+    }
 
 
 }

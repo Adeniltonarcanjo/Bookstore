@@ -1,6 +1,7 @@
 package com.github.adeniltonarcanjo.Bookstore.resource;
 
 
+import com.github.adeniltonarcanjo.Bookstore.domain.Book;
 import com.github.adeniltonarcanjo.Bookstore.domain.Category;
 import com.github.adeniltonarcanjo.Bookstore.dtos.CategoryDTO;
 import com.github.adeniltonarcanjo.Bookstore.services.CategoryService;
@@ -58,6 +59,9 @@ public class CategoryResource {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+
+
 
 
 }

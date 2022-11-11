@@ -34,5 +34,19 @@ public class BookResource {
 
     }
 
+    @PutMapping(value="/{id}")
+    public ResponseEntity<Book> update(@PathVariable Integer id, @RequestBody Book obj){
+        Book newObj= service.book_update(id, obj);
+        return ResponseEntity.ok().body(newObj);
+
+    }
+
+    @PatchMapping (value="/{id}")
+    public ResponseEntity<Book> update_patch(@PathVariable Integer id, @RequestBody Book obj){
+        Book newObj= service.book_update(id, obj);
+        return ResponseEntity.ok().body(newObj);
+
+    }
+
 
 }
