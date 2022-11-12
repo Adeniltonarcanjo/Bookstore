@@ -47,9 +47,7 @@ public class CategoryService {
             repository.deleteById(id);
         } catch (org.springframework.dao.DataIntegrityViolationException e) {
             throw new DataIntegrityViolationException("Category don't be deleted");
-
         }
-
     }
 
 

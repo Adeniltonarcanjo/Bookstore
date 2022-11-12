@@ -29,26 +29,28 @@ public class BookService {
     }
 
 
-    public List<Book> findAll(Integer id_cat){
+    public List<Book> findAll(Integer id_cat) {
         categoryService.findById(id_cat);
         return repository.findAllByCategory(id_cat);
-
     }
 
 
     public Book book_update(Integer id, Book obj) {
         Book newObj = findById(id);
-        updateData(newObj,obj);
+        updateData(newObj, obj);
         return repository.save(newObj);
-
     }
 
     private void updateData(Book newObj, Book obj) {
         newObj.setAuthor(obj.getAuthor());
         newObj.setText(obj.getText());
         newObj.setTitle(obj.getTitle());
-
     }
 
-
+    public Book create(Integer id_cat, Book obj) {
+        obj.setId(null);
+        Category category=categoryService.findById(id_cat);
+        obj.setCategory(category);
+        return repository.save(obj);
+    }
 }
