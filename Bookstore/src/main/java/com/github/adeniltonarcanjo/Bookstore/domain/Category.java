@@ -1,8 +1,10 @@
 package com.github.adeniltonarcanjo.Bookstore.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,13 @@ public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @NotEmpty(message = "mandatory NAME field")
+    @Length(min=3,max=100, message = "NAME must be between 3 and 100 characters")
     private String name;
+
+    @NotEmpty(message = "mandatory DESCRIPTION field")
+    @Length(min=3,max=200, message = "DESCRIPTION must be between 3 and 200 characters")
     private String description;
 
     @OneToMany(mappedBy = "category")

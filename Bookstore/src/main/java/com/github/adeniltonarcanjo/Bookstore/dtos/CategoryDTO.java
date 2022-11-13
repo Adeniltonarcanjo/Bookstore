@@ -1,7 +1,9 @@
 package com.github.adeniltonarcanjo.Bookstore.dtos;
 
 import com.github.adeniltonarcanjo.Bookstore.domain.Category;
+import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 public class CategoryDTO implements Serializable {
@@ -9,7 +11,13 @@ public class CategoryDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer id;
+
+    @NotEmpty(message = "mandatory NAME field")
+    @Length(min=3,max=100, message = "NAME must be between 3 and 100 characters")
     private String name;
+
+    @NotEmpty(message = "mandatory DESCRIPTION field")
+    @Length(min=3,max=200, message = "DESCRIPTION must be between 3 and 200 characters")
     private String description;
 
     public CategoryDTO() {

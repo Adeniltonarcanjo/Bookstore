@@ -1,8 +1,10 @@
 package com.github.adeniltonarcanjo.Bookstore.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Entity
@@ -13,8 +15,17 @@ public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @NotEmpty(message = "mandatory TITLE field")
+    @Length(min=3,max=50, message = "TITLE must be between 3 and 100 characters")
     private String title;
+
+    @NotEmpty(message = "mandatory AUTHOR field")
+    @Length(min=3,max=50, message = "AUTHOR must be between 3 and 50 characters")
     private String author;
+
+    @NotEmpty(message = "mandatory TEXT field")
+    @Length(min=10,max=2000000, message = "TEXT must be between 3 and 2000000 characters")
     private String text;
 
     @JsonIgnore
