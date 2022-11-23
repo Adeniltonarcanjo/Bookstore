@@ -23,12 +23,12 @@ public class DBService {
     public void dataBaseInstance() {
         Category cat1 = new Category(null, "Informatica", "livro de informatica ");
         Category cat2 = new Category(null, "Ficção Cientifica", "Ficção cientifica");
-        Category cat3 = new Category(null, "Biografia", "livro de Biografia ");
+        Category cat3 = new Category(null, "Biografia", "livros que relatam todo o percurso de vida do biografado, muitas vezes já falecido ");
 
-        Book b1 = new Book(null, "Clean code", "Robert Martin", "Lorem ipsum", cat1);
+        Book b1 = new Book(null, "Clean code", "Robert Martin", "Clean Code ou código limpo se refere a um conjunto de boas práticas na escrita de software que você pode aplicar para obter uma maior legibilidade e manutenabilidade do seu código.", cat1);
         Book b2 = new Book(null, "Lula", "Lula", "Biografia do presidente lula", cat3);
         Book b3 = new Book(null, "Rita Lee", "Rita lee", "Levava uma vida sosegada...", cat3);
-        Book b4 = new Book(null, "harry potter ", "don't know", "Lorem ipsum", cat2);
+        Book b4 = new Book(null, "harry potter ", "Joanne Rowling", "Harry Potter é uma série de sete romances de fantasia escrita pela autora britânica J. K. Rowling. A série narra as aventuras de um jovem chamado Harry James Potter, que descobre aos 11 anos de idade que é um bruxo ao ser convidado para estudar na Escola de Magia e Bruxaria de Hogwarts", cat2);
 
         cat1.getBooks().addAll(Arrays.asList(b1));
         cat2.getBooks().addAll(Arrays.asList(b4));
