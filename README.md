@@ -1,6 +1,6 @@
 # Bookstore backend (API)
 
-# About projeto ⁉️ 
+# About project ⁉️ 
 This project is part of the course "Spring Boot e Angular 10", organized by [Valdir Cezar](https://www.udemy.com/course/curso-de-angular-10-com-spring-boot-2/?referralCode=003BA46D1109483E9274#instructor-1).
 
 FUNCTIONAL VISION: In this project a library system was created with CRUD (CREATE, READ, UPDATE and DELETE) managing its books and categories via web requests.
